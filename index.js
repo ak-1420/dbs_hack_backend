@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const dotenv = require('dotenv')
-const moongoose = require('moongoose')
+const mongoose = require('mongoose')
 const app = express()
 
 app.use(express.json())
@@ -22,7 +22,7 @@ const customerRoutes = require('./routes/customer.route')
 app.use('/api/customer' , customerRoutes)
 app.use('/api/admin' , adminRoutes)
 
-moongoose.connect(process.env.MONGO_URL).then(() => {
+mongoose.connect(process.env.MONGO_URL).then(() => {
    app.listen(port , () => {
       console.log(`order booking system running on port ${port}`)
    })
