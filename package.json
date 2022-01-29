@@ -1,0 +1,30 @@
+{
+  "name": "dbs_hack_backend",
+  "version": "1.0.0",
+  "description": "order book system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon index.js",
+    "start" : "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ak-1420/dbs_hack_backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ak-1420/dbs_hack_backend/issues"
+  },
+  "homepage": "https://github.com/ak-1420/dbs_hack_backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^14.3.2",
+    "express": "^4.17.2",
+    "moongoose": "0.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
