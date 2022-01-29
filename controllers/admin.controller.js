@@ -1,5 +1,6 @@
 const Stock = require('../models/stock.model')
 const Admin = require('../models/admin.model')
+const adminId = "61f4e45e8ce9b4828d41e4c3"
 
 exports.createStock  = async (req , res ) => {
     const stock = new Stock(req.body)
@@ -63,3 +64,68 @@ exports.createAdmin = async (req , res ) => {
         })
     }
 }
+
+
+exports.updateMarket = async (req , res) => {
+    
+    const updateMarket = req.body
+
+    try 
+    {
+        const admin = await Admin.findById(adminId)
+
+        const updatedAdmin = await admin.findByIdAndUpdate(admin._id , {
+         updatedMarket
+        },{new:true})
+
+        res.status({
+            status:true,
+            message:'market status updated successfully',
+            data:updatedAdmin
+        })
+    } 
+    catch (error) {
+        res.status(500).json({
+            status:false,
+            message:'processing the request failed',
+            data:error
+        })
+    }
+}
+
+// exports.executeOrders = async (req , res) => {
+
+//        const stockName = req.body.stockName
+//        const executedQuantity = req.body.executedQuantity
+//        const executedPrice = req.body.executedPrice
+
+//        try 
+//        {
+
+//            const admin = await Admin.findById(adminId)
+
+//            if(!admin.isMarketOpen){ // check if market is open or closed
+//                return res.status(400).json({
+//                 status:false,
+//                 message:'processing the request failed',
+//                 data:'market is closed'
+//                })
+//            }
+
+//            // get the latest stocks 
+//            const stocks = await Stock.find({name : stockName}).sort({createdAt : -1})
+           
+//            stocks.map( async (stock) => {
+              
+//            })
+
+
+//        } 
+//        catch (error) {
+//         res.status(500).json({
+//             status:false,
+//             message:'processing the request failed',
+//             data:error
+//         })
+//        }
+// }

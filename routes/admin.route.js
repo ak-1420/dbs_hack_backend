@@ -13,5 +13,6 @@ router.get('/' , (req , res) => {
 router.post('/stock' , adminController.createStock)
 router.get('/stock', adminController.getStocks)
 router.post('/', adminController.createAdmin)
+router.patch('/' , adminController.updateMarket)
 
 module.exports = router
